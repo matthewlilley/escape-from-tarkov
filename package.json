@@ -1,0 +1,51 @@
+{
+  "name": "escape-from-tarkov",
+  "version": "0.0.1",
+  "description": "Unofficial Escape from Tarkov client",
+  "main": "dist/index.js",
+  "scripts": {
+    "clean": "rm -rf ./dist",
+    "build": "yarn run clean && tsc",
+    "dev": "tsc -w",
+    "lint": "eslint --ext .tsx,.ts src/",
+    "docs": "typedoc --tsconfig ./tsconfig.json --out ./docs",
+    "docs:serve": "./node_modules/.bin/serve ./docs",
+    "generate": "node -r ./node_modules/ts-node/register/transpile-only ./generated/generate.ts",
+    "examples": "DEBUG=tarkov:*,-tarkov:http node -r ./node_modules/ts-node/register/transpile-only",
+    "examples:worker": "yarn examples ./examples/worker.ts",
+    "examples:index": "yarn examples ./examples/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "eft",
+    "tarkov"
+  ],
+  "author": "Matthew Lilley",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "class-transformer": "^0.2.3",
+    "debug": "^4.1.1",
+    "node-fetch": "^2.6.0",
+    "node-localstorage": "^2.1.5",
+    "readline": "^1.3.0",
+    "reflect-metadata": "^0.1.13"
+  },
+  "devDependencies": {
+    "@types/debug": "^4.1.4",
+    "@types/node": "^13.5.1",
+    "@types/node-fetch": "^2.5.4",
+    "@types/node-localstorage": "^1.3.0",
+    "@typescript-eslint/eslint-plugin": "^2.3.1",
+    "@typescript-eslint/parser": "^2.3.1",
+    "eslint": "^6.4.0",
+    "prettier": "^1.19.1",
+    "quicktype": "^15.0.210",
+    "serve": "^11.3.0",
+    "ts-node": "^8.3.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-plugin-prettier": "^2.0.1",
+    "typedoc": "^0.15.0",
+    "typescript": "^3.6.0"
+  }
+}
