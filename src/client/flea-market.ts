@@ -105,7 +105,7 @@ export class FleaMarket {
 
     return response;
   }
-  async sell() {
+  async sell(): Promise<void> {
     //
   }
 }

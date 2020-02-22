@@ -1,3 +1,4 @@
+dist/*
 examples/storage/*
 !examples/storage/.gitkeep 
 examples/config.json

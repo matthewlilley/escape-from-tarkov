@@ -1,6 +1,6 @@
-import { Client } from './client';
+import { Client } from '..';
 import Debug from 'debug';
-import { TarkovResponse } from './http';
+import { TarkovResponse } from '../../http';
 
 const debug = Debug('tarkov:trading');
 

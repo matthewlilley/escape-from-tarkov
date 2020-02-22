@@ -24,7 +24,7 @@ export interface TarkovResponse {
   data: any | any[];
 }
 
-async function errorHandler(err: number, errmsg: string) {
+function errorHandler(err: number, errmsg: string): void {
   debug(err, errmsg);
   throw new TarkovError(err, errmsg);
 }
@@ -55,7 +55,7 @@ export async function request(
   );
 
   if (response.err) {
-    await errorHandler(response.err, response.errmsg);
+    errorHandler(response.err, response.errmsg);
   }
 
   if (
@@ -63,7 +63,7 @@ export async function request(
     response.data.badRequest &&
     response.data.badRequest.length
   ) {
-    await errorHandler(
+    errorHandler(
       response.data.badRequest[0].err,
       response.data.badRequest[0].errmsg
     );

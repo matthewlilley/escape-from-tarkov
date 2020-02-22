@@ -10,7 +10,6 @@ import { Profile } from './client/profile';
 import { TarkovError } from './http';
 import { Trader } from './client/trading/trader';
 import { Trading } from './client/trading';
-import { format } from 'url';
 import { plainToClass } from 'class-transformer';
 import readline from 'readline';
 
@@ -189,12 +188,12 @@ export class Tarkov implements Tarkov {
   }
 
   // TODO: Grid optimization algorithm
-  async orginise() {
+  async orginise(): Promise<void> {
     //
   }
 
   // TODO: Move item
-  async move() {
+  async move(): Promise<void> {
     //
   }
 
@@ -205,7 +204,7 @@ export class Tarkov implements Tarkov {
     return this.inventory.getCurrencyStacks(value, currency);
   }
 
-  async checkLauncherVersion() {
+  async checkLauncherVersion(): Promise<void> {
     debug('Checking launcher version');
     const distribtion = await this.launcher.getDistribution();
     // debug('Launcher distribtion:', distribtion);
@@ -220,7 +219,7 @@ export class Tarkov implements Tarkov {
     }
   }
 
-  async checkClientVersion() {
+  async checkClientVersion(): Promise<void> {
     debug('Checking client version');
     const patches = await this.launcher.getPatches();
 

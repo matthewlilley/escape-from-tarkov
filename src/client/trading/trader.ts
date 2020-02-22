@@ -3,7 +3,7 @@ import {
   Loyalty,
   Repair,
   Trader as TraderContract,
-} from './contracts/trader';
+} from '../contracts/trader';
 
 export class Trader implements TraderContract {
   _id: string;

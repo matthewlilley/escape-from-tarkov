@@ -36,14 +36,14 @@ export class Launcher {
     this.store = new LocalStorage(`${config.storagePath}/${config.email}`);
   }
 
-  defaultHeaders() {
+  defaultHeaders(): { [key: string]: string } {
     return {
       'Content-Type': 'application/json',
       'User-Agent': `BSG Launcher ${this.config.launcherVersion}`,
     };
   }
 
-  headers() {
+  headers(): { [key: string]: string } {
     return !this.token
       ? this.defaultHeaders()
       : {
@@ -52,7 +52,7 @@ export class Launcher {
         };
   }
 
-  async getDistribution() {
+  async getDistribution(): Promise<TarkovResponse> {
     const url = `https://launcher.escapefromtarkov.com/launcher/GetLauncherDistrib?launcherVersion=${this.config.launcherVersion}`;
     return this.request(url);
   }
@@ -159,7 +159,10 @@ export class Launcher {
     return response;
   }
 
-  async request(url: string, options: RequestInit = {}) {
+  async request(
+    url: string,
+    options: RequestInit = {}
+  ): Promise<TarkovResponse> {
     const headers = this.headers();
     return request(url, {
       headers,

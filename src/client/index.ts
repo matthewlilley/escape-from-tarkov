@@ -38,7 +38,7 @@ export class Client {
 
   profile: Profile;
 
-  requestId: number = 1;
+  requestId = 1;
 
   items: Item[];
 
@@ -69,7 +69,10 @@ export class Client {
     });
   }
 
-  async request(url: string, options: RequestInit = {}) {
+  async request(
+    url: string,
+    options: RequestInit = {}
+  ): Promise<TarkovResponse> {
     if (!this.session) {
       throw new Error('No session!');
     }
@@ -84,7 +87,7 @@ export class Client {
     });
   }
 
-  headers() {
+  headers(): { [key: string]: string } {
     return {
       'Content-Type': 'application/json',
       'User-Agent': `UnityPlayer/${this.config.unityVersion} (UnityWebRequest/1.0, libcurl/7.52.0-DEV)`,
