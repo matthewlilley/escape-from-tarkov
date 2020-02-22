@@ -47,19 +47,19 @@ function generateTs(input, output) {
 
   const profile = await tarkov.getProfile();
   generateJson('./generated/profile.json', profile);
-  generateTs('./generated/profile.json', './src/interfaces/profile.ts');
+  generateTs('./generated/profile.json', './src/client/contracts/profile.ts');
 
   const selectResponse = await tarkov.client.selectProfile(profile._id);
   generateJson('./generated/select-response.json', selectResponse);
 
   const items = await tarkov.getItems();
   generateJson('./generated/items.json', items);
-  generateTs('./generated/items.json', './src/interfaces/item.ts');
+  generateTs('./generated/items.json', './src/client/contracts/item.ts');
 
   const traders = await tarkov.getTraders();
   generateJson('./generated/traders-response.json', traders);
 
   const trader = traders.find(trader => trader.nickname === 'Терапевт');
   generateJson('./generated/trader.json', trader);
-  generateTs('./generated/trader.json', './src/interfaces/trader.ts');
+  generateTs('./generated/trader.json', './src/client/contracts/trader.ts');
 })();

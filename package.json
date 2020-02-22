@@ -32,7 +32,7 @@
   ],
   "author": "Matthew Lilley",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "dependencies": {
     "class-transformer": "^0.2.3",
     "debug": "^4.1.1",

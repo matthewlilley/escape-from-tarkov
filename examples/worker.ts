@@ -1,12 +1,12 @@
+import Debug from 'debug';
 import { TarkovError } from '../src/http';
 import config from './config.json';
-import createDebug from 'debug';
 import { createTarkov } from '../src';
 import { promisify } from 'util';
 
 const sleep = promisify(setTimeout);
 
-const debug = createDebug('tarkov:worker');
+const debug = Debug('tarkov:worker');
 
 // watch object, k (item id) => v (price limit)
 const watch = {
